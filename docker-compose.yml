@@ -3,12 +3,15 @@ version: '3.8'
 services:
   web:
     build:
-      context: .              
-      dockerfile: Dockerfile  
+      context: .               # The build context is the current directory
+      dockerfile: Dockerfile    # Make sure your Dockerfile is in the same directory
     container_name: nginx_web_app
     ports:
-      - "7777:80"        
-    restart: always          
+      - "7777:80"              # Map port 7777 on the host to port 80 in the container
+    restart: always            # Restart the container if it stops
+    networks:
+      - proxy                  
+
 networks:
   proxy:
-    external: true
+    external: true            # Assumes an external network 'proxy' exists
