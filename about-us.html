@@ -184,62 +184,90 @@
 
     <!-- About US Section Begin -->
     <section class="aboutus-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12" style="background-color: #0a0a0a;">
-                    <h2 class="text-center " style="color: #bef300 ;">BMI Calculator</h2>
-                    <div class="row my-5">
-                        <div class="col-8" style="display: flex;justify-content: center;">
-                            <div>
-                                <form id="bmiForm" style="width: 30rem;">
-                                    <div class="mb-3 my-3">
-                                        <input type="number"
-                                            style="background-color: #0a0a0a; color: white; height: 3rem;" id="height"
-                                            class="form-control" placeholder="Height (cm)" required>
-                                    </div>
-                                    <div class="mb-3 my-3">
-                                        <input type="number" id="weight" class="form-control"
-                                            style="background-color: #0a0a0a; color: white; height: 3rem;"
-                                            placeholder="Weight (kg)" required>
-                                    </div>
-                                    <button type="button" onclick="calculateBMI()"
-                                        class="primary-btn btn-normal appoinment-btn">Calculate BMI</button>
-                                </form>
 
-                                <style>
-                                    ::placeholder {
-                                        color: white;
-                                        opacity: 1;
-                                    }
-                            
-                                    #height::placeholder,
-                                    #weight::placeholder {
-                                        color: white;
-                                    }
-                            
-                                    /* Remove number input spinners for Chrome, Safari, Edge, and Opera */
-                                    input[type=number]::-webkit-outer-spin-button,
-                                    input[type=number]::-webkit-inner-spin-button {
-                                        -webkit-appearance: none;
-                                        margin: 0;
-                                    }
-                            
-                                    /* Remove number input spinners for Firefox */
-                                    input[type=number] {
-                                        -moz-appearance: textfield;
-                                    }
-                                </style>
-
-
-                            </div>
+        <section class="bmi-calculator-section spad">
+            <div class="container">
+                <div class="row">
+                    <!-- BMI Chart Table -->
+                    <div class="col-lg-6">
+                        <div class="section-title chart-title">
+                            <span>check your body</span>
+                            <h2>BMI CALCULATOR CHART</h2>
                         </div>
-                        <div class="col-4">
-                            <h3 id="result" class="bmi-result mt-3 text-white"></h3>
-                            <h4 id="status" class="status text-white"></h4>
+                        <div class="chart-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Bmi</th>
+                                        <th>WEIGHT STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="point">Below 18.5</td>
+                                        <td>Underweight</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point">18.5 - 24.9</td>
+                                        <td>Healthy</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point">25.0 - 29.9</td>
+                                        <td>Overweight</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point">30.0 and Above</td>
+                                        <td>Obese</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
+                    <!-- BMI Calculation Form -->
+                    <div class="col-lg-6">
+                        <div class="section-title chart-calculate-title">
+                            <span>check your body</span>
+                            <h2>CALCULATE YOUR BMI</h2>
+                        </div>
+                        <div class="chart-calculate-form">
+                            <p>Body Mass Index (BMI) is a simple measurement to help you understand if your weight is in
+                                a healthy range based on your height. It is a valuable tool that, along with other
+                                factors, can guide you in managing your health. Enter your height and weight below to
+                                calculate your BMI and see which category you fall into.</p>
+                            <form id="bmi-form" onsubmit="calculateBMI(event)">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="number" id="height" placeholder="Height / cm" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="number" id="weight" placeholder="Weight / kg" required>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="submit">Calculate</button>
+                                    </div>
+                                </div>
+                                <div id="bmi-result" style="margin-top: 20px; font-weight: bold; color: white;"></div>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
-                <!-- <div class="col-lg-6 p-0">
+            </div>
+        </section>
+        <style>
+            input[type="number"]::-webkit-outer-spin-button,
+            input[type="number"]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Hide arrows on number inputs for Firefox */
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+        </style>
+        <!-- <div class="col-lg-6 p-0">
                     <div class="about-video set-bg" data-setbg="img/about-us.jpg">
                         <a href="https://www.youtube.com/watch?v=EzKkl64rRbM" class="play-btn video-popup"><i
                                 class="fa fa-caret-right"></i></a>
@@ -295,8 +323,8 @@
                     </div>
                     
                 </div> -->
-            </div>
-        </div>
+
+
     </section>
     <!-- About US Section End -->
 
@@ -543,29 +571,37 @@
 
 
     <script>
-        function calculateBMI() {
-            const height = parseFloat(document.getElementById("height").value) / 100;
+        function calculateBMI(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get height and weight values from inputs
+            const height = parseFloat(document.getElementById("height").value);
             const weight = parseFloat(document.getElementById("weight").value);
 
-            if (height > 0 && weight > 0) {
-                const bmi = (weight / (height * height)).toFixed(1);
-                document.getElementById("result").textContent = `Your BMI: ${bmi}`;
-
-                let statusText = '';
-                if (bmi < 18.5) {
-                    statusText = 'Underweight';
-                } else if (bmi < 24.9) {
-                    statusText = 'Normal weight';
-                } else if (bmi < 29.9) {
-                    statusText = 'Overweight';
-                } else {
-                    statusText = 'Obese';
-                }
-                document.getElementById("status").textContent = `Status: ${statusText}`;
-            } else {
-                document.getElementById("result").textContent = "Please enter valid values.";
-                document.getElementById("status").textContent = '';
+            // Validate inputs
+            if (!height || !weight) {
+                alert("Please enter valid height and weight values.");
+                return;
             }
+
+            // Calculate BMI: BMI = weight (kg) / (height (m) * height (m))
+            const heightInMeters = height / 100;
+            const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+
+            // Determine BMI category
+            let category;
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                category = "Healthy";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obese";
+            }
+
+            // Display the result
+            document.getElementById("bmi-result").textContent = `Your BMI is ${bmi} (${category})`;
         }
     </script>
 
