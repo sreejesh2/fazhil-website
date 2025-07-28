@@ -1,39 +1,104 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Gym Template">
-    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="description" content="Fitnesspark - Modern Gym & Fitness Center in Kerala with Professional Training">
+    <meta name="keywords" content="Gym, Fitness, Training, Kerala, Ernakulam, Health, Workout">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fitnesspark</title>
-    <link rel="icon" href="./img/f1.png" type="image/svg+xml">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
+    <title>Fitnesspark - Transform Your Body, Transform Your Life</title>
+    <link rel="icon" href="./img/f1.png" type="image/png">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical CSS - Load fonts with display swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <!-- Non-critical CSS - Load asynchronously -->
+    <link rel="preload" href="css/flaticon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/barfiller.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/slicknav.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/barfiller.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/slicknav.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </noscript>
+    
+    <!-- Inline critical CSS for loader -->
+    <style>
+        #preloder {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #333;
+            border-top: 3px solid #f36100;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Hide elements until loaded */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .fade-in.loaded {
+            opacity: 1;
+        }
+        
+        /* Lazy loading placeholder */
+        .lazy-img {
+            background: #f0f0f0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <!-- Page Preloader -->
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
+    <div class="offcanvas-menu-wrapper fade-in">
         <div class="canvas-close">
             <i class="fa fa-close"></i>
         </div>
@@ -44,41 +109,23 @@
             <ul>
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about-us.html">About Us</a></li>
-                <!-- <li><a href="./classes.html">Classes</a></li> -->
                 <li><a href="./services.html">Services</a></li>
                 <li><a href="./team.html">Our Team</a></li>
-                <!-- <li><a href="#">Pages</a>
-                    <ul class="dropdown">
-                        <li><a href="./about-us.html">About us</a></li>
-                        <li><a href="./class-timetable.html">Classes timetable</a></li>
-                        <li><a href="./bmi-calculator.html">Bmi calculate</a></li>
-                        <li><a href="./team.html">Our team</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li><a href="./blog.html">Our blog</a></li>
-                        <li><a href="./404.html">404</a></li>
-                    </ul>
-                </li> -->
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
-        <!-- <div class="canvas-social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-        </div> -->
     </div>
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
-    <header class="header-section">
+    <header class="header-section fade-in">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
                         <a href="./index.html">
-                            <img class="logo-img" src="img/f3.png" alt="">
+                            <img class="logo-img" src="img/f3.png" alt="Fitnesspark Logo" loading="eager">
                         </a>
                     </div>
                 </div>
@@ -89,12 +136,10 @@
                             <li><a href="./about-us.html">About Us</a></li>
                             <li><a href="./services.html">Services</a></li>
                             <li><a href="./team.html">Our Team</a></li>
-
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
-
             </div>
             <div class="canvas-open">
                 <i class="fa fa-bars"></i>
@@ -104,7 +149,7 @@
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero-section">
+    <section class="hero-section fade-in">
         <div class="hs-slider owl-carousel">
             <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg">
                 <div class="container">
@@ -112,8 +157,7 @@
                         <div class="col-lg-6 offset-lg-6">
                             <div class="hi-text">
                                 <span>Shape your body</span>
-                                <h1>Be <strong>strong</strong> traning hard</h1>
-                                <!-- <a href="#" class="primary-btn">Get info</a> -->
+                                <h1>Be <strong>strong</strong> training hard</h1>
                             </div>
                         </div>
                     </div>
@@ -126,7 +170,6 @@
                             <div class="hi-text">
                                 <span>Push Your Limits</span>
                                 <h1>Don't <strong>Complain</strong> Enjoy The Pain</h1>
-                                <!-- <a href="#" class="primary-btn">Get info</a> -->
                             </div>
                         </div>
                     </div>
@@ -137,12 +180,12 @@
     <!-- Hero Section End -->
 
     <!-- ChoseUs Section Begin -->
-    <section class="choseus-section spad">
+    <section class="choseus-section spad fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Why chose us?</span>
+                        <span>Why choose us?</span>
                         <h2>PUSH YOUR LIMITS FORWARD</h2>
                     </div>
                 </div>
@@ -152,48 +195,43 @@
                     <div class="cs-item">
                         <span class="flaticon-034-stationary-bike"></span>
                         <h4>Modern equipment</h4>
-                        <p>Train with the latest in fitness technology to maximize your results. Our gym is equipped for
-                            every fitness level.</p>
+                        <p>Train with the latest in fitness technology to maximize your results. Our gym is equipped for every fitness level.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-033-juice"></span>
                         <h4>Healthy nutrition plan</h4>
-                        <p>Achieve your goals with a personalized nutrition plan from our experts. Fuel up the right
-                            way!</p>
+                        <p>Achieve your goals with a personalized nutrition plan from our experts. Fuel up the right way!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-002-dumbell"></span>
-                        <h4>Proffesponal training plan</h4>
-                        <p>Our certified trainers create custom workout plans tailored to your goals, guiding you every
-                            step of the way.</p>
+                        <h4>Professional training plan</h4>
+                        <p>Our certified trainers create custom workout plans tailored to your goals, guiding you every step of the way.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-014-heart-beat"></span>
                         <h4>Unique to your needs</h4>
-                        <p>Your fitness journey is unique, and so is our approach. Get a program that fits your
-                            lifestyle and needs.</p>
+                        <p>Your fitness journey is unique, and so is our approach. Get a program that fits your lifestyle and needs.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- Banner Section Begin -->
-    <section class="banner-section set-bg" data-setbg="img/PANA3077.jpg">
+    <section class="banner-section set-bg fade-in" data-setbg="img/PANA3077.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="bs-text">
-                        <h2>registration now to get more deals</h2>
+                        <h2>Registration now to get more deals</h2>
                         <div class="bt-tips">Where health, beauty and fitness meet.</div>
-                        <a href="#" class="primary-btn  btn-normal">Appointment</a>
+                        <a href="./contact.html" class="primary-btn btn-normal">Book Appointment</a>
                     </div>
                 </div>
             </div>
@@ -202,7 +240,7 @@
     <!-- Banner Section End -->
 
     <!-- Pricing Section Begin -->
-    <section class="pricing-section spad">
+    <section class="pricing-section spad fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -213,51 +251,46 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-8">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="ps-item mt">
                         <h3>One Month</h3>
                         <div class="pi-price">
-                            <h2>₹ 1000</h2>
-
+                            <h2>₹ 1,000</h2>
                         </div>
-
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="./contact.html" class="primary-btn pricing-btn">Enroll now</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-8">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="ps-item">
-                        <h3>3 Month</h3>
+                        <h3>3 Months</h3>
                         <div class="pi-price">
-                            <h2>₹ 2000</h2>
-
+                            <h2>₹ 2,000</h2>
+                            <span class="save-badge">Save ₹1,000</span>
                         </div>
-
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="./contact.html" class="primary-btn pricing-btn">Enroll now</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-8">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="ps-item">
-                        <h3>6 Month</h3>
+                        <h3>6 Months</h3>
                         <div class="pi-price">
-                            <h2>₹ 4000</h2>
-
+                            <h2>₹ 4,000</h2>
+                            <span class="save-badge">Save ₹2,000</span>
                         </div>
-
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="./contact.html" class="primary-btn pricing-btn">Enroll now</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-8">
-                    <div class="ps-item">
-                        <h3>12 Month</h3>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="ps-item popular">
+                        <h3>12 Months</h3>
                         <div class="pi-price">
-                            <h2>₹ 7000</h2>
-
+                            <h2>₹ 7,000</h2>
+                            <span class="save-badge">Save ₹5,000</span>
                         </div>
-
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="./contact.html" class="primary-btn pricing-btn">Enroll now</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
@@ -267,25 +300,31 @@
     <!-- Pricing Section End -->
 
     <!-- Gallery Section Begin -->
-    <div class="gallery-section">
+    <div class="gallery-section fade-in">
         <div class="gallery">
             <div class="grid-sizer"></div>
-            <div class="gs-item grid-wide set-bg" data-setbg="img/PANA3151.jpg">
+            <div class="gs-item grid-wide set-bg lazy-load" data-setbg="img/PANA3151.jpg">
+                <img class="lazy-img" data-src="img/PANA3151.jpg" alt="Gym Equipment" loading="lazy">
                 <a href="img/PANA3151.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item set-bg" data-setbg="img/PANA3077.jpg">
+            <div class="gs-item set-bg lazy-load" data-setbg="img/PANA3077.jpg">
+                <img class="lazy-img" data-src="img/PANA3077.jpg" alt="Workout Area" loading="lazy">
                 <a href="img/PANA3077.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item set-bg" data-setbg="img/PANA3087.jpg">
+            <div class="gs-item set-bg lazy-load" data-setbg="img/PANA3087.jpg">
+                <img class="lazy-img" data-src="img/PANA3087.jpg" alt="Training Session" loading="lazy">
                 <a href="img/PANA3087.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item set-bg" data-setbg="img/PANA3102.jpg">
+            <div class="gs-item set-bg lazy-load" data-setbg="img/PANA3102.jpg">
+                <img class="lazy-img" data-src="img/PANA3102.jpg" alt="Fitness Equipment" loading="lazy">
                 <a href="img/PANA3102.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item set-bg" data-setbg="img/PANA3366.jpg">
+            <div class="gs-item set-bg lazy-load" data-setbg="img/PANA3366.jpg">
+                <img class="lazy-img" data-src="img/PANA3366.jpg" alt="Gym Interior" loading="lazy">
                 <a href="img/PANA3366.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item grid-wide set-bg" data-setbg="img/PANA3196.jpg">
+            <div class="gs-item grid-wide set-bg lazy-load" data-setbg="img/PANA3196.jpg">
+                <img class="lazy-img" data-src="img/PANA3196.jpg" alt="Personal Training" loading="lazy">
                 <a href="img/PANA3196.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
         </div>
@@ -293,7 +332,7 @@
     <!-- Gallery Section End -->
 
     <!-- Team Section Begin -->
-    <section class="team-section spad">
+    <section class="team-section spad fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -302,14 +341,15 @@
                             <span>Our Team</span>
                             <h2>TRAIN WITH EXPERTS</h2>
                         </div>
-                        <a href="#" class="primary-btn btn-normal appoinment-btn">appointment</a>
+                        <a href="./contact.html" class="primary-btn btn-normal appoinment-btn">Book Appointment</a>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="ts-slider owl-carousel">
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/ROSHAN.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/ROSHAN.png">
+                            <img class="lazy-img" data-src="img/team/ROSHAN.png" alt="Roshan Saju - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Roshan Saju</h4>
                                 <span>Gym Trainer</span>
@@ -317,7 +357,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/AMAL.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/AMAL.png">
+                            <img class="lazy-img" data-src="img/team/AMAL.png" alt="Amal M A - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Amal M A</h4>
                                 <span>Gym Trainer</span>
@@ -325,7 +366,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/AJITH.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/AJITH.png">
+                            <img class="lazy-img" data-src="img/team/AJITH.png" alt="Ajith V B - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Ajith V B</h4>
                                 <span>Gym Trainer</span>
@@ -333,7 +375,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/AMEENUL.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/AMEENUL.png">
+                            <img class="lazy-img" data-src="img/team/AMEENUL.png" alt="Ameenul Haq A N - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Ameenul Haq A N</h4>
                                 <span>Gym Trainer</span>
@@ -341,7 +384,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/ARUN.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/ARUN.png">
+                            <img class="lazy-img" data-src="img/team/ARUN.png" alt="Arun K - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Arun K</h4>
                                 <span>Gym Trainer</span>
@@ -349,7 +393,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/MUHAMMED.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/MUHAMMED.png">
+                            <img class="lazy-img" data-src="img/team/MUHAMMED.png" alt="Muhammed Sufiyan N N - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Muhammed Sufiyan N N</h4>
                                 <span>Gym Trainer</span>
@@ -357,7 +402,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/ATHIRA.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/ATHIRA.png">
+                            <img class="lazy-img" data-src="img/team/ATHIRA.png" alt="Athira T H - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Athira T H</h4>
                                 <span>Gym Trainer</span>
@@ -365,7 +411,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/ANILA.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/ANILA.png">
+                            <img class="lazy-img" data-src="img/team/ANILA.png" alt="Anila - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Anila</h4>
                                 <span>Gym Trainer</span>
@@ -373,7 +420,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="img/team/NONAME.png">
+                        <div class="ts-item set-bg lazy-load" data-setbg="img/team/NONAME.png">
+                            <img class="lazy-img" data-src="img/team/NONAME.png" alt="Sumayya Anwar - Gym Trainer" loading="lazy">
                             <div class="ts_text">
                                 <h4>Sumayya Anwar</h4>
                                 <span>Gym Trainer</span>
@@ -387,7 +435,7 @@
     <!-- Team Section End -->
 
     <!-- Get In Touch Section Begin -->
-    <div class="gettouch-section">
+    <div class="gettouch-section fade-in">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -406,15 +454,15 @@
                     <div class="gt-text">
                         <i class="fa fa-mobile"></i>
                         <ul>
-                            <li>+91 7034 5126 93</li>
-                            <li>+91 8714 2454 55</li>
+                            <li><a href="tel:+917034512693">+91 7034 5126 93</a></li>
+                            <li><a href="tel:+918714245455">+91 8714 2454 55</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="gt-text email">
                         <i class="fa fa-envelope"></i>
-                        <p>fitnessparkin@gmail.com</p>
+                        <p><a href="mailto:fitnessparkin@gmail.com">fitnessparkin@gmail.com</a></p>
                     </div>
                 </div>
             </div>
@@ -431,9 +479,7 @@
                         <p>
                             Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> All rights reserved <i
-                                class="fa fa-heart" aria-hidden="true"></i> by <a href=""
-                                target="_blank">Fitnesspark</a>
-
+                                class="fa fa-heart" aria-hidden="true"></i> by <a href="./index.html">Fitnesspark</a>
                         </p>
                     </div>
                 </div>
@@ -453,18 +499,82 @@
     </div>
     <!-- Search model end -->
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/jquery.barfiller.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Js Plugins - Load non-critical JS after page load -->
+    <script>
+        // Preloader functionality
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloder');
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            // Hide preloader
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    
+                    // Show content with fade-in effect
+                    fadeElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.classList.add('loaded');
+                        }, index * 100);
+                    });
+                }, 300);
+            }, 500);
+        });
 
+        // Lazy loading for images
+        const lazyImages = document.querySelectorAll('.lazy-img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-img');
+                    observer.unobserve(img);
+                }
+            });
+        });
 
+        lazyImages.forEach(img => imageObserver.observe(img));
 
+        // Load non-critical JavaScript after page load
+        function loadScript(src) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            document.body.appendChild(script);
+        }
+
+        // Load scripts after page is fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                loadScript('js/jquery-3.3.1.min.js');
+                
+                // Load other scripts after jQuery is loaded
+                setTimeout(() => {
+                    loadScript('js/bootstrap.min.js');
+                    loadScript('js/jquery.magnific-popup.min.js');
+                    loadScript('js/masonry.pkgd.min.js');
+                    loadScript('js/jquery.barfiller.js');
+                    loadScript('js/jquery.slicknav.js');
+                    loadScript('js/owl.carousel.min.js');
+                    loadScript('js/main.js');
+                }, 100);
+            }, 200);
+        });
+
+        // Service Worker for caching (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    }).catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
 </body>
 
 </html>
